@@ -16,6 +16,14 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+	output = "bt_core:stick 5",
+	recipe = {
+		{"", "bt_core:peach_planks", ""},
+		{"", "bt_core:peach_planks", ""},
+	}
+})
+
+minetest.register_craft({
 	output = "bt_core:flint_axe",
 	recipe = {
 		{"", "bt_core:flint", ""},
@@ -28,5 +36,12 @@ minetest.register_craft({
 	output = "bt_core:plum_planks 2",
 	recipe = {
 		{"bt_core:plum_log"},
+	}
+})
+
+minetest.register_craft({
+	output = "bt_core:peach_planks 2",
+	recipe = {
+		{"bt_core:peach_log"},
 	}
 })

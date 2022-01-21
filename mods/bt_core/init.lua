@@ -49,6 +49,17 @@ minetest.register_node('bt_core:plum_leaves', {
                   sounds = bt_sounds.leaves_sounds
 })
 
+minetest.register_node('bt_core:peach_leaves', {
+	description = 'Peach Leaves',
+                  waving = '1',
+	drawtype = 'allfaces_optional',
+	paramtype = 'light',
+	tiles = { 'bt_core_peach_leaves.png' },
+	groups = { snappy = 3 },
+	is_ground_content = true,
+                  sounds = bt_sounds.leaves_sounds
+})
+
 register_node('bt_core:plum_table', {
     description = 'Plum Table',
     tiles = { 'bt_core_plum_planks.png' },
@@ -77,13 +88,30 @@ register_node('bt_core:plum_planks', {
     sounds = bt_sounds.wood_sounds
 })
 
+register_node('bt_core:peach_planks', {
+    description = 'Peach Planks',
+    tiles = { 'bt_core_peach_planks.png' },
+    groups = { choppy = 3 },
+    is_ground_content = true,
+    sounds = bt_sounds.wood_sounds
+})
+
 register_node('bt_core:plum_trunk', {
     description = 'Plum Trunk',
     drop = 'bt_core:plum_log',
     tiles = { 'bt_core_plum_log.png', 'bt_core_plum_log.png', 'bt_core_plum_log_side.png' },
     groups = { choppy = 3, falling_node = 1, },
     is_ground_content = true,
-    bt_sounds.wood_sounds
+    sounds = bt_sounds.wood_sounds
+})
+
+register_node('bt_core:peach_trunk', {
+    description = 'Peach Trunk',
+    drop = 'bt_core:peach_log',
+    tiles = { 'bt_core_peach_log.png', 'bt_core_peach_log.png', 'bt_core_peach_log_side.png' },
+    groups = { choppy = 3, falling_node = 1, },
+    is_ground_content = true,
+    sounds = bt_sounds.wood_sounds
 })
 
 register_node('bt_core:sand', {
@@ -91,7 +119,7 @@ register_node('bt_core:sand', {
     tiles = { 'bt_core_sand.png' },
     groups = { crumbly = 3, falling_node = 1, },
     is_ground_content = true,
-    bt_sounds.dirt_sounds
+    sounds = bt_sounds.dirt_sounds
 })
 
 minetest.register_node("bt_core:snow", {
@@ -110,13 +138,15 @@ minetest.register_node("bt_core:snow", {
 		},
 	},
 	groups = {crumbly = 3, falling_node = 1 },
+                  sounds = bt_sounds.dirt_sounds
 })
 
 register_node('bt_core:sandstone', {
     description = 'Sandstone',
     tiles = { 'bt_core_sandstone.png' },
     groups = { cracky = 3 },
-    is_ground_content = true
+    is_ground_content = true,
+    sounds = bt_sounds.stone_sounds
 })
 
 register_node('bt_core:plum_log', {
@@ -125,7 +155,18 @@ register_node('bt_core:plum_log', {
     paramtype2 = "facedir",
     groups = { choppy = 3 },
     is_ground_content = true,
-    bt_sounds.wood_sounds,
+    sounds = bt_sounds.wood_sounds,
+
+    on_place = minetest.rotate_node
+})
+
+register_node('bt_core:peach_log', {
+    description = 'Peach Log',
+    tiles = { 'bt_core_peach_log.png', 'bt_core_peach_log.png', 'bt_core_peach_log_side.png' },
+    paramtype2 = "facedir",
+    groups = { choppy = 3 },
+    is_ground_content = true,
+    sounds = bt_sounds.wood_sounds,
 
     on_place = minetest.rotate_node
 })
@@ -135,7 +176,7 @@ register_node('bt_core:dirt', {
     tiles = { 'bt_core_dirt.png' },
     groups = { crumbly = 3 },
     is_ground_content = true,
-    bt_sounds.dirt_sounds,
+    sounds = bt_sounds.dirt_sounds
 })
 
 register_node('bt_core:dirt_with_snow', {
@@ -143,7 +184,7 @@ register_node('bt_core:dirt_with_snow', {
     tiles = { 'bt_core_snow.png', 'bt_core_dirt.png', 'bt_core_dirt_with_snow.png' },
     groups = { crumbly = 3 },
     is_ground_content = true,
-    bt_sounds.dirt_sounds,
+    sounds = bt_sounds.dirt_sounds
 })
 
 register_node('bt_core:dirt_with_flint', {
@@ -152,7 +193,7 @@ register_node('bt_core:dirt_with_flint', {
     tiles = { 'bt_core_dirt_with_flint.png' },
     groups = { crumbly = 3 },
     is_ground_content = true,
-    bt_sounds.dirt_sounds,
+    sounds = bt_sounds.dirt_sounds
 })
 
 register_node('bt_core:cooked_meat', {
@@ -186,7 +227,7 @@ register_node('bt_core:dirt_with_grass', {
     tiles = { 'bt_core_dirt_with_grass.png', 'bt_core_dirt.png', 'bt_core_dirt_with_grass_side.png' },
     groups = { crumbly = 3 },
     is_ground_content = true,
-    bt_sounds.dirt_sounds
+    sounds = bt_sounds.dirt_sounds
 })
 
 register_node('bt_core:water_source', {

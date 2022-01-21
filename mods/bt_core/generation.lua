@@ -57,21 +57,6 @@ minetest.register_decoration({
 })
 
 minetest.register_decoration({
-	deco_type = "schematic",
-	place_on = "bt_core:snow",
-	sidelen = 4,
-	fill_ratio = 0.01,
-	biomes = {"tundra"},
-	height = 2,
-	y_min = 5,
-	y_max = 31000,
-	place_offset_y = 0,
-	schematic = ("plum_tree.mts"),
-	flags = "place_center_x, place_center_z, force_placement",
-	rotation = "random",
-})
-
-minetest.register_decoration({
 	decoration = "bt_core:grass",
 	deco_type = "simple",
 	place_on = "bt_core:dirt_with_grass",
