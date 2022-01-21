@@ -57,6 +57,21 @@ minetest.register_decoration({
 })
 
 minetest.register_decoration({
+	deco_type = "schematic",
+	place_on = "bt_core:dirt_with_grass",
+	sidelen = 4,
+	fill_ratio = 0.005,
+	biomes = {"forest"},
+	height = 2,
+	y_min = 5,
+	y_max = 31000,
+	place_offset_y = 0,
+	schematic = ("peach_tree.mts"),
+	flags = "place_center_x, place_center_z, force_placement",
+	rotation = "random",
+})
+
+minetest.register_decoration({
 	decoration = "bt_core:grass",
 	deco_type = "simple",
 	place_on = "bt_core:dirt_with_grass",
