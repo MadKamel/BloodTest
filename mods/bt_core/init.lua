@@ -1,6 +1,17 @@
+-- Register some easy aliases for these functions.
+
 local register_node = minetest.register_node
 local register_alias = minetest.register_alias
+
+
+
+-- Get the local modpath
+
 local modpath = minetest.get_modpath("bt_core")
+
+
+
+-- Run the other files in the bt_core mod
 
 dofile(modpath.."/generation.lua")
 dofile(modpath.."/tools.lua")
@@ -8,15 +19,11 @@ dofile(modpath.."/crafting.lua")
 dofile(modpath.."/fire.lua")
 dofile(modpath.."/items.lua")
 
---natural nodes
 
-register_node('bt_core:stone', {
-    description = 'Stone',
-    tiles = { 'bt_core_stone.png' },
-    groups = { cracky = 3 },
-    is_ground_content = true,
-    sounds = bt_sounds.stone_sounds
-})
+
+--		 Now to register some nodes:
+
+-- Grass, the kind you pick up, not the kind that has dirt in it.
 
 register_node('bt_core:grass', {
     description = 'Grass',
@@ -28,6 +35,18 @@ register_node('bt_core:grass', {
     groups = { snappy = 3 },
     is_ground_content = true,
     sounds = bt_sounds.leaves_sounds
+})
+
+
+
+-- Natural, stone nodes
+
+register_node('bt_core:stone', {
+    description = 'Stone',
+    tiles = { 'bt_core_stone.png' },
+    groups = { cracky = 3 },
+    is_ground_content = true,
+    sounds = bt_sounds.stone_sounds
 })
 
 register_node('bt_core:stone_with_lead', {
@@ -45,6 +64,26 @@ register_node('bt_core:stone_with_cobalt', {
     is_ground_content = true,
     sounds = bt_sounds.stone_sounds
 })
+
+register_node('bt_core:stone_with_copper', {
+    description = 'Stone With Copper',
+    tiles = { 'bt_core_stone_with_copper.png' },
+    groups = { cracky = 2 },
+    is_ground_content = true,
+    sounds = bt_sounds.stone_sounds
+})
+
+register_node('bt_core:stone_with_tin', {
+    description = 'Stone With Tin',
+    tiles = { 'bt_core_stone_with_tin.png' },
+    groups = { cracky = 2 },
+    is_ground_content = true,
+    sounds = bt_sounds.stone_sounds
+})
+
+
+
+-- Tree nodes, leaves and logs.
 
 minetest.register_node('bt_core:plum_leaves', {
 	description = 'Plum Leaves',
@@ -67,6 +106,66 @@ minetest.register_node('bt_core:peach_leaves', {
 	is_ground_content = true,
                   sounds = bt_sounds.leaves_sounds
 })
+
+register_node('bt_core:plum_planks', {
+    description = 'Plum Planks',
+    tiles = { 'bt_core_plum_planks.png' },
+    groups = { choppy = 3 },
+    is_ground_content = true,
+    sounds = bt_sounds.wood_sounds
+})
+
+register_node('bt_core:peach_planks', {
+    description = 'Peach Planks',
+    tiles = { 'bt_core_peach_planks.png' },
+    groups = { choppy = 3 },
+    is_ground_content = true,
+    sounds = bt_sounds.wood_sounds
+})
+
+register_node('bt_core:plum_trunk', {
+    description = 'Plum Trunk',
+    drop = 'bt_core:plum_log',
+    tiles = { 'bt_core_plum_log.png', 'bt_core_plum_log.png', 'bt_core_plum_log_side.png' },
+    groups = { choppy = 3, falling_node = 1, },
+    is_ground_content = true,
+    sounds = bt_sounds.wood_sounds
+})
+
+register_node('bt_core:peach_trunk', {
+    description = 'Peach Trunk',
+    drop = 'bt_core:peach_log',
+    tiles = { 'bt_core_peach_log.png', 'bt_core_peach_log.png', 'bt_core_peach_log_side.png' },
+    groups = { choppy = 3, falling_node = 1, },
+    is_ground_content = true,
+    sounds = bt_sounds.wood_sounds
+})
+
+register_node('bt_core:plum_log', {
+    description = 'Plum Log',
+    tiles = { 'bt_core_plum_log.png', 'bt_core_plum_log.png', 'bt_core_plum_log_side.png' },
+    paramtype2 = "facedir",
+    groups = { choppy = 3 },
+    is_ground_content = true,
+    sounds = bt_sounds.wood_sounds,
+
+    on_place = minetest.rotate_node
+})
+
+register_node('bt_core:peach_log', {
+    description = 'Peach Log',
+    tiles = { 'bt_core_peach_log.png', 'bt_core_peach_log.png', 'bt_core_peach_log_side.png' },
+    paramtype2 = "facedir",
+    groups = { choppy = 3 },
+    is_ground_content = true,
+    sounds = bt_sounds.wood_sounds,
+
+    on_place = minetest.rotate_node
+})
+
+
+
+-- Furniture, plum and peach wood.
 
 register_node('bt_core:plum_table', {
     description = 'Plum Table',
@@ -108,39 +207,9 @@ register_node('bt_core:peach_table', {
     sounds = bt_sounds.wood_sounds
 })
 
-register_node('bt_core:plum_planks', {
-    description = 'Plum Planks',
-    tiles = { 'bt_core_plum_planks.png' },
-    groups = { choppy = 3 },
-    is_ground_content = true,
-    sounds = bt_sounds.wood_sounds
-})
 
-register_node('bt_core:peach_planks', {
-    description = 'Peach Planks',
-    tiles = { 'bt_core_peach_planks.png' },
-    groups = { choppy = 3 },
-    is_ground_content = true,
-    sounds = bt_sounds.wood_sounds
-})
 
-register_node('bt_core:plum_trunk', {
-    description = 'Plum Trunk',
-    drop = 'bt_core:plum_log',
-    tiles = { 'bt_core_plum_log.png', 'bt_core_plum_log.png', 'bt_core_plum_log_side.png' },
-    groups = { choppy = 3, falling_node = 1, },
-    is_ground_content = true,
-    sounds = bt_sounds.wood_sounds
-})
-
-register_node('bt_core:peach_trunk', {
-    description = 'Peach Trunk',
-    drop = 'bt_core:peach_log',
-    tiles = { 'bt_core_peach_log.png', 'bt_core_peach_log.png', 'bt_core_peach_log_side.png' },
-    groups = { choppy = 3, falling_node = 1, },
-    is_ground_content = true,
-    sounds = bt_sounds.wood_sounds
-})
+-- Sand. Enough said.
 
 register_node('bt_core:sand', {
     description = 'Sand',
@@ -149,6 +218,18 @@ register_node('bt_core:sand', {
     is_ground_content = true,
     sounds = bt_sounds.dirt_sounds
 })
+
+register_node('bt_core:sandstone', {
+    description = 'Sandstone',
+    tiles = { 'bt_core_sandstone.png' },
+    groups = { cracky = 3 },
+    is_ground_content = true,
+    sounds = bt_sounds.stone_sounds
+})
+
+
+
+-- Snow. Almost like sand, but not.
 
 minetest.register_node("bt_core:snow", {
 	description = ("Snow"),
@@ -169,35 +250,9 @@ minetest.register_node("bt_core:snow", {
                   sounds = bt_sounds.dirt_sounds
 })
 
-register_node('bt_core:sandstone', {
-    description = 'Sandstone',
-    tiles = { 'bt_core_sandstone.png' },
-    groups = { cracky = 3 },
-    is_ground_content = true,
-    sounds = bt_sounds.stone_sounds
-})
 
-register_node('bt_core:plum_log', {
-    description = 'Plum Log',
-    tiles = { 'bt_core_plum_log.png', 'bt_core_plum_log.png', 'bt_core_plum_log_side.png' },
-    paramtype2 = "facedir",
-    groups = { choppy = 3 },
-    is_ground_content = true,
-    sounds = bt_sounds.wood_sounds,
 
-    on_place = minetest.rotate_node
-})
-
-register_node('bt_core:peach_log', {
-    description = 'Peach Log',
-    tiles = { 'bt_core_peach_log.png', 'bt_core_peach_log.png', 'bt_core_peach_log_side.png' },
-    paramtype2 = "facedir",
-    groups = { choppy = 3 },
-    is_ground_content = true,
-    sounds = bt_sounds.wood_sounds,
-
-    on_place = minetest.rotate_node
-})
+-- Dirt, some organic inorganic material.
 
 register_node('bt_core:dirt', {
     description = 'Dirt',
@@ -224,6 +279,10 @@ register_node('bt_core:dirt_with_flint', {
     sounds = bt_sounds.dirt_sounds
 })
 
+
+
+-- Meat, wait why is this a block?
+
 register_node('bt_core:cooked_meat', {
     description = 'Cooked Meat',
     tiles = { 'bt_core_cooked_meat.png' },
@@ -232,6 +291,19 @@ register_node('bt_core:cooked_meat', {
     on_use = minetest.item_eat(5),
     bt_sounds.dirt_sounds
 })
+
+register_node('bt_core:dirt_with_grass', {
+    description = 'Dirt With Grass',
+    drop = 'bt_core:dirt',
+    tiles = { 'bt_core_dirt_with_grass.png', 'bt_core_dirt.png', 'bt_core_dirt_with_grass_side.png' },
+    groups = { crumbly = 3 },
+    is_ground_content = true,
+    sounds = bt_sounds.dirt_sounds
+})
+
+
+
+-- Clay. Used to make bricks and moulds.
 
 register_node('bt_core:raw_clay', {
     description = 'Clay',
@@ -249,14 +321,9 @@ register_node('bt_core:baked_clay', {
     bt_sounds.stone_sounds
 })
 
-register_node('bt_core:dirt_with_grass', {
-    description = 'Dirt With Grass',
-    drop = 'bt_core:dirt',
-    tiles = { 'bt_core_dirt_with_grass.png', 'bt_core_dirt.png', 'bt_core_dirt_with_grass_side.png' },
-    groups = { crumbly = 3 },
-    is_ground_content = true,
-    sounds = bt_sounds.dirt_sounds
-})
+
+
+-- Water. You already know this one. At least I hope you do.
 
 register_node('bt_core:water_source', {
     description = 'Water Source',
@@ -265,6 +332,8 @@ register_node('bt_core:water_source', {
 })
 
 
+
+-- Now we register our basic mapgen node aliases.
 
 register_alias('mapgen_stone', 'bt_core:stone')
 register_alias('mapgen_water_source', 'bt_core:water_source')
