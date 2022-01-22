@@ -88,6 +88,26 @@ register_node('bt_core:plum_table', {
     sounds = bt_sounds.wood_sounds
 })
 
+register_node('bt_core:peach_table', {
+    description = 'Peach Table',
+    tiles = { 'bt_core_peach_planks.png' },
+    paramtype = "light",
+    drawtype = "nodebox",
+    groups = { choppy = 3 },
+    is_ground_content = true,
+    node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5, 0.375, -0.5, 0.5, 0.5, 0.5},
+			{-0.5, -0.5, -0.5, -0.375, 0.375, -0.375},
+			{0.5, -0.5, -0.5, 0.375, 0.375, -0.375},
+			{0.5, -0.5, 0.5, 0.375, 0.375, 0.375},
+			{-0.5, -0.5, 0.5, -0.375, 0.375, 0.375},
+		}
+	},
+    sounds = bt_sounds.wood_sounds
+})
+
 register_node('bt_core:plum_planks', {
     description = 'Plum Planks',
     tiles = { 'bt_core_plum_planks.png' },
