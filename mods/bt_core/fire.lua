@@ -2,6 +2,8 @@ local register_node = minetest.register_node
 
 register_node('bt_core:fire', {
     description = 'Fire Starter',
+    inventory_image = 'bt_core_fire_starter.png',
+    wield_image = 'bt_core_fire_starter.png',
     damage_per_second = 3,
     drawtype = 'firelike',
     paramtype = 'light',

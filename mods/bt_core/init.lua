@@ -7,6 +7,7 @@ dofile(modpath.."/tools.lua")
 dofile(modpath.."/crafting.lua")
 dofile(modpath.."/fire.lua")
 dofile(modpath.."/items.lua")
+dofile(modpath.."/molds.lua")
 
 --natural nodes
 
@@ -224,8 +225,37 @@ register_node('bt_core:dirt_with_flint', {
     sounds = bt_sounds.dirt_sounds
 })
 
+register_node('bt_core:raw_meat', {
+    description = 'Raw Meat',
+    drawtype = 'mesh',
+    mesh = 'meat.obj',
+    selection_box = {
+		type = "fixed",
+		fixed = {
+			{-0.25, -0.5, -0.5, 0.25, 0, 0.125},
+			{-0.0625, -0.3125, 0.125, 0.0625, -0.1875, 0.5},
+		}
+    },
+    walkable = false,
+    tiles = { 'bt_core_raw_meat.png' },
+    groups = { oddly_breakable_by_hand = 3 },
+    is_ground_content = true,
+    on_use = minetest.item_eat(-5),
+    bt_sounds.dirt_sounds
+})
+
 register_node('bt_core:cooked_meat', {
     description = 'Cooked Meat',
+    drawtype = 'mesh',
+    mesh = 'meat.obj',
+    selection_box = {
+		type = "fixed",
+		fixed = {
+			{-0.25, -0.5, -0.5, 0.25, 0, 0.125},
+			{-0.0625, -0.3125, 0.125, 0.0625, -0.1875, 0.5},
+		}
+    },
+    walkable = false,
     tiles = { 'bt_core_cooked_meat.png' },
     groups = { oddly_breakable_by_hand = 3 },
     is_ground_content = true,
