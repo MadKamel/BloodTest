@@ -258,11 +258,43 @@ register_node('bt_core:dirt_with_grass', {
     sounds = bt_sounds.dirt_sounds
 })
 
-register_node('bt_core:water_source', {
-    description = 'Water Source',
-    tiles = { 'bt_core_water_source.png' },
-    is_ground_content = true
+--Liquids
+minetest.register_node("bt_core:water_source", {
+	description = "Water",
+	drawtype = "liquid",
+	tiles = {"bt_core_water_source.png"},
+	paramtype = "light",
+	walkable = false,
+	pointable = false,
+	buildable_to = true,
+	drowning = 1,
+	liquidtype = "source",
+	liquid_alternative_flowing = "bt_core:water_flowing",
+	liquid_alternative_source = "bt_core:water_source",
+	liquid_viscosity = 1,
+	post_effect_color = {a = 100, r = 120, g = 105, b = 196},
+	groups = { not_in_creative_inventory = 1, water = 1 }
 })
+
+minetest.register_node("bt_core:water_flowing", {
+	description = "Water",
+	drawtype = "flowingliquid",
+	tiles = {"bt_core_water_source.png"},
+	paramtype = "light",
+	paramtype2 = "flowingliquid",
+	walkable = false,
+	pointable = false,
+	buildable_to = true,
+	drowning = 1,
+	liquidtype = "flowing",
+	liquid_alternative_flowing = "bt_core:water_flowing",
+	liquid_alternative_source = "bt_core:water_source",
+	liquid_renewable = false,
+	liquid_viscosity = 1,
+	post_effect_color = {a = 100, r = 120, g = 105, b = 196},
+	groups = { not_in_creative_inventory = 1, water = 1 }
+})
+
 
 
 
