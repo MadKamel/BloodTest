@@ -105,6 +105,17 @@ minetest.register_ore({
 
 minetest.register_ore({
 	ore_type = "scatter",
+	ore = "bt_core:stone_with_cobalt",
+	wherein = "bt_core:stone",
+	clust_scarcity = 12*12*12,
+	clust_num_ores = 6,
+	clust_size = 3,
+	y_min = -31000,
+	y_max = 31000,
+})
+
+minetest.register_ore({
+	ore_type = "scatter",
 	ore = "bt_core:dirt_with_flint",
 	wherein = "bt_core:dirt",
 	clust_scarcity = 5*5*5,

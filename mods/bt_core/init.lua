@@ -38,6 +38,14 @@ register_node('bt_core:stone_with_lead', {
     sounds = bt_sounds.stone_sounds
 })
 
+register_node('bt_core:stone_with_cobalt', {
+    description = 'Stone With Cobalt',
+    tiles = { 'bt_core_stone_with_cobalt.png' },
+    groups = { cracky = 2 },
+    is_ground_content = true,
+    sounds = bt_sounds.stone_sounds
+})
+
 minetest.register_node('bt_core:plum_leaves', {
 	description = 'Plum Leaves',
                   waving = '1',
@@ -63,6 +71,26 @@ minetest.register_node('bt_core:peach_leaves', {
 register_node('bt_core:plum_table', {
     description = 'Plum Table',
     tiles = { 'bt_core_plum_planks.png' },
+    paramtype = "light",
+    drawtype = "nodebox",
+    groups = { choppy = 3 },
+    is_ground_content = true,
+    node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5, 0.375, -0.5, 0.5, 0.5, 0.5},
+			{-0.5, -0.5, -0.5, -0.375, 0.375, -0.375},
+			{0.5, -0.5, -0.5, 0.375, 0.375, -0.375},
+			{0.5, -0.5, 0.5, 0.375, 0.375, 0.375},
+			{-0.5, -0.5, 0.5, -0.375, 0.375, 0.375},
+		}
+	},
+    sounds = bt_sounds.wood_sounds
+})
+
+register_node('bt_core:peach_table', {
+    description = 'Peach Table',
+    tiles = { 'bt_core_peach_planks.png' },
     paramtype = "light",
     drawtype = "nodebox",
     groups = { choppy = 3 },
