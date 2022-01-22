@@ -38,6 +38,14 @@ register_node('bt_core:stone_with_lead', {
     sounds = bt_sounds.stone_sounds
 })
 
+register_node('bt_core:stone_with_cobalt', {
+    description = 'Stone With Cobalt',
+    tiles = { 'bt_core_stone_with_cobalt.png' },
+    groups = { cracky = 2 },
+    is_ground_content = true,
+    sounds = bt_sounds.stone_sounds
+})
+
 minetest.register_node('bt_core:plum_leaves', {
 	description = 'Plum Leaves',
                   waving = '1',
