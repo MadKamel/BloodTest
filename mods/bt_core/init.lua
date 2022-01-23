@@ -3,11 +3,14 @@ local register_alias = minetest.register_alias
 local modpath = minetest.get_modpath("bt_core")
 
 dofile(modpath.."/generation.lua")
+dofile(modpath.."/grass.lua")
 dofile(modpath.."/tools.lua")
 dofile(modpath.."/crafting.lua")
 dofile(modpath.."/fire.lua")
 dofile(modpath.."/items.lua")
 dofile(modpath.."/molds.lua")
+dofile(modpath.."/paintings.lua")
+dofile(modpath.."/bricks.lua")
 
 --natural nodes
 
@@ -17,18 +20,6 @@ register_node('bt_core:stone', {
     groups = { cracky = 3 },
     is_ground_content = true,
     sounds = bt_sounds.stone_sounds
-})
-
-register_node('bt_core:grass', {
-    description = 'Grass',
-    waving = '1',
-    drawtype = 'plantlike',
-    walkable = false,
-    paramtype = "light",
-    tiles = { 'bt_core_grass.png' },
-    groups = { snappy = 3 },
-    is_ground_content = true,
-    sounds = bt_sounds.leaves_sounds
 })
 
 register_node('bt_core:stone_with_lead', {
@@ -143,6 +134,15 @@ register_node('bt_core:peach_trunk', {
     sounds = bt_sounds.wood_sounds
 })
 
+register_node('bt_core:willow_trunk', {
+    description = 'Willow Trunk',
+    drop = 'bt_core:willow_log',
+    tiles = { 'bt_core_willow_log.png', 'bt_core_willow_log.png', 'bt_core_willow_log_side.png' },
+    groups = { choppy = 3, falling_node = 1, },
+    is_ground_content = true,
+    sounds = bt_sounds.wood_sounds
+})
+
 register_node('bt_core:sand', {
     description = 'Sand',
     tiles = { 'bt_core_sand.png' },
@@ -189,6 +189,17 @@ register_node('bt_core:plum_log', {
     on_place = minetest.rotate_node
 })
 
+register_node('bt_core:willow_log', {
+    description = 'Willow Log',
+    tiles = { 'bt_core_willow_log.png', 'bt_core_willow_log.png', 'bt_core_willow_log_side.png' },
+    paramtype2 = "facedir",
+    groups = { choppy = 3 },
+    is_ground_content = true,
+    sounds = bt_sounds.wood_sounds,
+
+    on_place = minetest.rotate_node
+})
+
 register_node('bt_core:peach_log', {
     description = 'Peach Log',
     tiles = { 'bt_core_peach_log.png', 'bt_core_peach_log.png', 'bt_core_peach_log_side.png' },
@@ -203,6 +214,22 @@ register_node('bt_core:peach_log', {
 register_node('bt_core:dirt', {
     description = 'Dirt',
     tiles = { 'bt_core_dirt.png' },
+    groups = { crumbly = 3 },
+    is_ground_content = true,
+    sounds = bt_sounds.dirt_sounds
+})
+
+register_node('bt_core:thatch', {
+    description = 'Thatch',
+    tiles = { 'bt_core_thatch.png' },
+    groups = { snappy = 3 },
+    is_ground_content = true,
+    sounds = bt_sounds.leaves_sounds
+})
+
+register_node('bt_core:mud', {
+    description = 'Mud',
+    tiles = { 'bt_core_mud.png' },
     groups = { crumbly = 3 },
     is_ground_content = true,
     sounds = bt_sounds.dirt_sounds
@@ -227,6 +254,7 @@ register_node('bt_core:dirt_with_flint', {
 
 register_node('bt_core:raw_meat', {
     description = 'Raw Meat',
+    paramtype = "light",
     drawtype = 'mesh',
     mesh = 'meat.obj',
     selection_box = {
@@ -246,6 +274,7 @@ register_node('bt_core:raw_meat', {
 
 register_node('bt_core:cooked_meat', {
     description = 'Cooked Meat',
+    paramtype = "light",
     drawtype = 'mesh',
     mesh = 'meat.obj',
     selection_box = {
@@ -283,6 +312,15 @@ register_node('bt_core:dirt_with_grass', {
     description = 'Dirt With Grass',
     drop = 'bt_core:dirt',
     tiles = { 'bt_core_dirt_with_grass.png', 'bt_core_dirt.png', 'bt_core_dirt_with_grass_side.png' },
+    groups = { crumbly = 3 },
+    is_ground_content = true,
+    sounds = bt_sounds.dirt_sounds
+})
+
+register_node('bt_core:mud_with_grass', {
+    description = 'Mud With Grass',
+    drop = 'bt_core:mud',
+    tiles = { 'bt_core_mud_with_grass.png', 'bt_core_mud.png', 'bt_core_mud_with_grass_side.png' },
     groups = { crumbly = 3 },
     is_ground_content = true,
     sounds = bt_sounds.dirt_sounds

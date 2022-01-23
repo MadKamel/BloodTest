@@ -25,6 +25,12 @@ register_node('bt_core:raw_pickaxe_head_mold', {
 			{0.25, -0.4375, -0.125, 0.3125, -0.375, 0.1875},
 			{0.3125, -0.4375, -0.125, 0.375, -0.375, 0.0625},
 		}
-	},
+    },
+    selection_box = {
+		type = "fixed",
+		fixed = {
+			{-0.5, -0.5, -0.5, 0.5, -0.375, 0.5},
+		}
+    },
     sounds = bt_sounds.dirt_sounds
 })

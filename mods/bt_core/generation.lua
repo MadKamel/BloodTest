@@ -13,6 +13,20 @@ minetest.register_biome({
 })
 
 minetest.register_biome({
+	name = "swamp",
+	node_top = "bt_core:mud_with_grass",
+	depth_top = 1,
+	node_filler = "bt_core:mud",
+	depth_filler = 2,
+	node_riverbed = "bt_core:stone",
+	depth_riverbed = 3,
+	y_max = 31000,
+	y_min = 5,
+	heat_point = 25,
+	humidity_point = 80,
+})
+
+minetest.register_biome({
 	name = "tundra",
 	node_dust = "bt_core:snow",
 	node_top = "bt_core:dirt_with_snow",

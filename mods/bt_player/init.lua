@@ -43,9 +43,10 @@ minetest.register_on_joinplayer(function(player)
 	player:get_inventory():set_size("main", 8)
 	player:hud_set_hotbar_itemcount(8)
 	player:set_properties({
-		visual = "upright_sprite",
+		visual = "mesh",
+                                    mesh = 'bt_player.obj',
 		visual_size = { x = 1, y = 2 },
-		eye_height = "1.3",
-		textures = { "bt_player_front.png", "bt_player_back.png" },
+		eye_height = "1.45",
+		textures = { "bt_player.png" },
 	})
 end)
