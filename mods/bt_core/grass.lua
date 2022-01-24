@@ -1,8 +1,8 @@
 local register_node = minetest.register_node
 
 
-register_node('bt_core:grass', {
-    description = 'Grass',
+register_node('bt_core:wild_grass', {
+    description = 'Wild Grass',
     waving = '1',
     drawtype = 'plantlike',
     walkable = false,
