@@ -15,6 +15,8 @@ local modpath = minetest.get_modpath("bt_core")
 
 dofile(modpath.."/generation.lua")
 dofile(modpath.."/wool.lua")
+dofile(modpath.."/cotton.lua")
+dofile(modpath.."/paintings.lua")
 dofile(modpath.."/smelting.lua")
 dofile(modpath.."/grass.lua")
 dofile(modpath.."/dyes.lua")

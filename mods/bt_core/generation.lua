@@ -13,6 +13,20 @@ minetest.register_biome({
 })
 
 minetest.register_biome({
+	name = "grassland",
+	node_top = "bt_core:dirt_with_grass",
+	depth_top = 1,
+	node_filler = "bt_core:dirt",
+	depth_filler = 2,
+	node_riverbed = "bt_core:stone",
+	depth_riverbed = 3,
+	y_max = 31000,
+	y_min = 5,
+	heat_point = 40,
+	humidity_point = 40,
+})
+
+minetest.register_biome({
 	name = "swamp",
 	node_top = "bt_core:mud_with_grass",
 	depth_top = 1,
@@ -86,7 +100,37 @@ minetest.register_decoration({
 })
 
 minetest.register_decoration({
-	decoration = "bt_core:grass",
+	deco_type = "schematic",
+	place_on = "bt_core:dirt_with_grass",
+	sidelen = 4,
+	fill_ratio = 0.0005,
+	biomes = {"forest"},
+	height = 2,
+	y_min = 5,
+	y_max = 31000,
+	place_offset_y = 0,
+	schematic = ("plum_tree.mts"),
+	flags = "place_center_x, place_center_z, force_placement",
+	rotation = "random",
+})
+
+minetest.register_decoration({
+	deco_type = "schematic",
+	place_on = "bt_core:dirt_with_grass",
+	sidelen = 4,
+	fill_ratio = 0.0005,
+	biomes = {"forest"},
+	height = 2,
+	y_min = 5,
+	y_max = 31000,
+	place_offset_y = 0,
+	schematic = ("peach_tree.mts"),
+	flags = "place_center_x, place_center_z, force_placement",
+	rotation = "random",
+})
+
+minetest.register_decoration({
+	decoration = "bt_core:wild_grass",
 	deco_type = "simple",
 	place_on = "bt_core:dirt_with_grass",
 	sidelen = 16,
@@ -97,6 +141,44 @@ minetest.register_decoration({
 		scale = 0.008,
 		spread = {x = 250, y = 250, z = 250},
 		seed = 1,
+		octaves = 3,
+		persist = 0.64
+	},
+	y_min = 1,
+	y_max = 80,
+})
+
+minetest.register_decoration({
+	decoration = "bt_core:wild_grass",
+	deco_type = "simple",
+	place_on = "bt_core:dirt_with_grass",
+	sidelen = 16,
+	fill_ratio = 0.8,
+	biomes = {"grassland"},
+		noise_params = {
+		offset = 0.01,
+		scale = 0.008,
+		spread = {x = 250, y = 250, z = 250},
+		seed = 1,
+		octaves = 3,
+		persist = 0.64
+	},
+	y_min = 1,
+	y_max = 80,
+})
+
+minetest.register_decoration({
+	decoration = "bt_core:wild_cotton",
+	deco_type = "simple",
+	place_on = "bt_core:dirt_with_grass",
+	sidelen = 16,
+	fill_ratio = 0.8,
+	biomes = {"forest"},
+		noise_params = {
+		offset = 0.01,
+		scale = 0.008,
+		spread = {x = 250, y = 250, z = 250},
+		seed = 2,
 		octaves = 3,
 		persist = 0.64
 	},

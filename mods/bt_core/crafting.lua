@@ -26,8 +26,17 @@ minetest.register_craft({
 minetest.register_craft({
 	output = "bt_core:flint_axe",
 	recipe = {
+		{"", "", ""},
+		{"bt_core:flint", "bt_core:wild_grass", ""},
+		{"", "bt_core:stick", ""},
+	}
+})
+
+minetest.register_craft({
+	output = "bt_core:flint_spear",
+	recipe = {
 		{"", "bt_core:flint", ""},
-		{"", "bt_core:grass", ""},
+		{"", "bt_core:wild_grass", ""},
 		{"", "bt_core:stick", ""},
 	}
 })
