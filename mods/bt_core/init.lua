@@ -50,6 +50,22 @@ register_node('bt_core:stone', {
     sounds = bt_sounds.stone_sounds
 })
 
+register_node('bt_core:jade', {
+    description = 'Jade',
+    tiles = { 'bt_core_jade.png' },
+    groups = { cracky = 3 },
+    is_ground_content = true,
+    sounds = bt_sounds.stone_sounds
+})
+
+register_node('bt_core:ice', {
+    description = 'Ice',
+    tiles = { 'bt_core_ice.png' },
+    groups = { cracky = 3, slippery = 3 },
+    is_ground_content = true,
+    sounds = bt_sounds.stone_sounds
+})
+
 register_node('bt_core:stone_with_lead', {
     description = 'Stone With Lead',
     tiles = { 'bt_core_stone_with_lead.png' },
