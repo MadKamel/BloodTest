@@ -14,29 +14,20 @@ local modpath = minetest.get_modpath("bt_core")
 -- Run the other files in the bt_core mod
 
 dofile(modpath.."/generation.lua")
+dofile(modpath.."/wool.lua")
+dofile(modpath.."/smelting.lua")
+dofile(modpath.."/grass.lua")
+dofile(modpath.."/dyes.lua")
 dofile(modpath.."/tools.lua")
 dofile(modpath.."/crafting.lua")
 dofile(modpath.."/fire.lua")
 dofile(modpath.."/items.lua")
+dofile(modpath.."/bricks.lua")
 dofile(modpath.."/leaf_decay.lua")
 
 
 
 --		 Now to register some nodes:
-
--- Grass, the kind you pick up, not the kind that has dirt in it.
-
-register_node('bt_core:grass', {
-    description = 'Grass',
-    waving = '1',
-    drawtype = 'plantlike',
-    walkable = false,
-    paramtype = "light",
-    tiles = { 'bt_core_grass.png' },
-    groups = { snappy = 3 },
-    is_ground_content = true,
-    sounds = bt_sounds.leaves_sounds
-})
 
 
 
@@ -300,8 +291,39 @@ register_node('bt_core:dirt_with_flint', {
 
 -- Meat, wait why is this a block?
 
+register_node('bt_core:raw_meat', {
+    description = 'Raw Meat',
+    paramtype = "light",
+    drawtype = 'mesh',
+    mesh = 'meat.obj',
+    selection_box = {
+		type = "fixed",
+		fixed = {
+			{-0.25, -0.5, -0.5, 0.25, 0, 0.125},
+			{-0.0625, -0.3125, 0.125, 0.0625, -0.1875, 0.5},
+		}
+    },
+    walkable = false,
+    tiles = { 'bt_core_raw_meat.png' },
+    groups = { oddly_breakable_by_hand = 3 },
+    is_ground_content = true,
+    on_use = minetest.item_eat(-5),
+    bt_sounds.dirt_sounds
+})
+
 register_node('bt_core:cooked_meat', {
     description = 'Cooked Meat',
+    paramtype = "light",
+    drawtype = 'mesh',
+    mesh = 'meat.obj',
+    selection_box = {
+		type = "fixed",
+		fixed = {
+			{-0.25, -0.5, -0.5, 0.25, 0, 0.125},
+			{-0.0625, -0.3125, 0.125, 0.0625, -0.1875, 0.5},
+		}
+    },
+    walkable = false,
     tiles = { 'bt_core_cooked_meat.png' },
     groups = { oddly_breakable_by_hand = 3 },
     is_ground_content = true,
@@ -342,10 +364,40 @@ register_node('bt_core:baked_clay', {
 
 -- Water. You already know this one. At least I hope you do.
 
-register_node('bt_core:water_source', {
-    description = 'Water Source',
-    tiles = { 'bt_core_water_source.png' },
-    is_ground_content = true
+minetest.register_node("bt_core:water_source", {
+	description = "Water",
+	drawtype = "liquid",
+	tiles = {"bt_core_water_source.png"},
+	paramtype = "light",
+	walkable = false,
+	pointable = false,
+	buildable_to = true,
+	drowning = 1,
+	liquidtype = "source",
+	liquid_alternative_flowing = "bt_core:water_flowing",
+	liquid_alternative_source = "bt_core:water_source",
+	liquid_viscosity = 1,
+	post_effect_color = {a = 100, r = 120, g = 105, b = 196},
+	groups = { not_in_creative_inventory = 1, water = 1 }
+})
+
+minetest.register_node("bt_core:water_flowing", {
+	description = "Water",
+	drawtype = "flowingliquid",
+	tiles = {"bt_core_water_flowing.png"},
+	paramtype = "light",
+	paramtype2 = "flowingliquid",
+	walkable = false,
+	pointable = false,
+	buildable_to = true,
+	drowning = 1,
+	liquidtype = "flowing",
+	liquid_alternative_flowing = "bt_core:water_flowing",
+	liquid_alternative_source = "bt_core:water_source",
+	liquid_renewable = false,
+	liquid_viscosity = 1,
+	post_effect_color = {a = 100, r = 120, g = 105, b = 196},
+	groups = { not_in_creative_inventory = 1, water = 1 }
 })
 
 

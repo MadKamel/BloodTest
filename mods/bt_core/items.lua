@@ -3,6 +3,11 @@ minetest.register_craftitem("bt_core:lead_lump", {
     inventory_image = "bt_core_lead_lump.png"
 })
 
+minetest.register_craftitem("bt_core:clay_ball", {
+    description = "Clay Ball",
+    inventory_image = "bt_core_clay_ball.png"
+})
+
 minetest.register_craftitem("bt_core:cobalt_lump", {
     description = "Cobalt Lump",
     inventory_image = "bt_core_cobalt_lump.png"
