@@ -18,6 +18,7 @@ dofile(modpath.."/tools.lua")
 dofile(modpath.."/crafting.lua")
 dofile(modpath.."/fire.lua")
 dofile(modpath.."/items.lua")
+dofile(modpath.."/leaf_decay.lua")
 
 
 
