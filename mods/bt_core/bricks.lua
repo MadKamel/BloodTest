@@ -34,3 +34,11 @@ register_node('bt_core:baked_brick', {
     },
     sounds = bt_sounds.stone_sounds
 })
+
+register_node('bt_core:bricks', {
+    description = 'Bricks',
+    tiles = { 'bt_core_bricks.png' },
+    groups = { cracky = 3 },
+    is_ground_content = true,
+    sounds = bt_sounds.stone_sounds
+})

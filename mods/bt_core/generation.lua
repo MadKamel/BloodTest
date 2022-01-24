@@ -118,6 +118,28 @@ minetest.register_ore({
 })
 
 minetest.register_ore({
+	ore_type = "blob",
+	ore = "bt_core:raw_clay",
+	wherein = "bt_core:dirt_with_grass",
+	clust_scarcity = 8*8*8,
+	clust_num_ores = 3,
+	clust_size = 3,
+	y_min = -31000,
+	y_max = 31000,
+})
+
+minetest.register_ore({
+	ore_type = "blob",
+	ore = "bt_core:raw_clay",
+	wherein = "bt_core:dirt",
+	clust_scarcity = 8*8*8,
+	clust_num_ores = 3,
+	clust_size = 3,
+	y_min = -31000,
+	y_max = 31000,
+})
+
+minetest.register_ore({
 	ore_type = "scatter",
 	ore = "bt_core:stone_with_cobalt",
 	wherein = "bt_core:stone",
