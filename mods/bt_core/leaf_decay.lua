@@ -1,7 +1,7 @@
 local distance = 3
 
 minetest.register_abm({
-	label = "Remove lonely juniper leaves.",
+	label = "Remove lonely plum leaves.",
 	nodenames = {"bt_core:plum_leaves"},
 	interval = 3,
 	chance = 1,
@@ -13,7 +13,7 @@ minetest.register_abm({
 })
 
 minetest.register_abm({
-	label = "Remove lonely holly leaves.",
+	label = "Remove lonely peach leaves.",
 	nodenames = {"bt_core:peach_leaves"},
 	interval = 3,
 	chance = 1,
