@@ -16,6 +16,13 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+	output = "bt_core:grass_1 5",
+	recipe = {
+		{"bt_core:grass_5", "", ""},
+	}
+})
+
+minetest.register_craft({
 	output = "bt_core:stick 5",
 	recipe = {
 		{"", "bt_core:peach_planks", ""},
@@ -65,6 +72,24 @@ minetest.register_craft({
 		{"bt_core:baked_brick", "bt_core:baked_brick", "bt_core:baked_brick"},
 		{"bt_core:baked_brick", "bt_core:clay_ball", "bt_core:baked_brick"},
 		{"bt_core:baked_brick", "bt_core:baked_brick", "bt_core:baked_brick"},
+	}
+})
+
+minetest.register_craft({
+	output = "bt_core:thatch",
+	recipe = {
+		{"bt_core:grass_5", "bt_core:grass_5", "bt_core:grass_5"},
+		{"bt_core:grass_5", "bt_core:grass_5", "bt_core:grass_5"},
+		{"bt_core:grass_5", "bt_core:grass_5", "bt_core:grass_5"},
+	}
+})
+
+minetest.register_craft({
+	output = "bt_core:white_wool",
+	recipe = {
+		{"bt_core:cotton_ball", "bt_core:cotton_ball", "bt_core:cotton_ball"},
+		{"bt_core:cotton_ball", "bt_core:cotton_ball", "bt_core:cotton_ball"},
+		{"bt_core:cotton_ball", "bt_core:cotton_ball", "bt_core:cotton_ball"},
 	}
 })
 

@@ -15,6 +15,7 @@ local modpath = minetest.get_modpath("bt_core")
 
 dofile(modpath.."/generation.lua")
 dofile(modpath.."/wool.lua")
+dofile(modpath.."/molds.lua")
 dofile(modpath.."/cotton.lua")
 dofile(modpath.."/paintings.lua")
 dofile(modpath.."/smelting.lua")
@@ -272,9 +273,35 @@ register_node('bt_core:dirt', {
     sounds = bt_sounds.dirt_sounds
 })
 
+register_node('bt_core:thatch', {
+    description = 'Thatch',
+    tiles = { 'bt_core_thatch.png' },
+    groups = { snappy = 3 },
+    is_ground_content = true,
+    sounds = bt_sounds.leaves_sounds
+})
+
+register_node('bt_core:mud', {
+    description = 'Mud',
+    tiles = { 'bt_core_mud.png' },
+    groups = { crumbly = 3 },
+    is_ground_content = true,
+    sounds = bt_sounds.dirt_sounds
+})
+
 register_node('bt_core:dirt_with_snow', {
     description = 'Dirt With Snow',
+    drop = 'bt_core:dirt',
     tiles = { 'bt_core_snow.png', 'bt_core_dirt.png', 'bt_core_dirt_with_snow.png' },
+    groups = { crumbly = 3 },
+    is_ground_content = true,
+    sounds = bt_sounds.dirt_sounds
+})
+
+register_node('bt_core:mud_with_grass', {
+    description = 'Mud With Grass',
+    drop = 'bt_core:mud',
+    tiles = { 'bt_core_mud_with_grass.png', 'bt_core_mud.png', 'bt_core_mud_with_grass_side.png' },
     groups = { crumbly = 3 },
     is_ground_content = true,
     sounds = bt_sounds.dirt_sounds
@@ -351,7 +378,7 @@ register_node('bt_core:raw_clay', {
     tiles = { 'bt_core_clay.png' },
     groups = { crumbly = 3 },
     is_ground_content = true,
-    bt_sounds.dirt_sounds
+    sounds = bt_sounds.dirt_sounds
 })
 
 register_node('bt_core:baked_clay', {
@@ -359,7 +386,7 @@ register_node('bt_core:baked_clay', {
     tiles = { 'bt_core_baked_clay.png' },
     groups = { cracky = 3 },
     is_ground_content = true,
-    bt_sounds.stone_sounds
+    sounds = bt_sounds.stone_sounds
 })
 
 

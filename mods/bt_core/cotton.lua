@@ -112,6 +112,8 @@ minetest.register_abm({
 	end
 })
 
+--flowing
+
 minetest.register_abm({
 	label = "Grow cotton 1 flowing.",
 	nodenames = {"bt_core:cotton_1"},
