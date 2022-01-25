@@ -14,6 +14,7 @@ local modpath = minetest.get_modpath("bt_core")
 -- Run the other files in the bt_core mod
 
 dofile(modpath.."/generation.lua")
+dofile(modpath.."/tree_growth.lua")
 dofile(modpath.."/wool.lua")
 dofile(modpath.."/molds.lua")
 dofile(modpath.."/cotton.lua")
@@ -54,6 +55,17 @@ register_node('bt_core:jade', {
 
 register_node('bt_core:ice', {
     description = 'Ice',
+    tiles = { 'bt_core_ice.png' },
+    groups = { cracky = 3, slippery = 3 },
+    is_ground_content = true,
+    sounds = bt_sounds.stone_sounds
+})
+
+register_node('bt_core:ice_crystal', {
+    description = 'Ice Crystal',
+    paramtype = "light",
+    drawtype = 'mesh',
+    mesh = 'bt_core_crystal.obj',
     tiles = { 'bt_core_ice.png' },
     groups = { cracky = 3, slippery = 3 },
     is_ground_content = true,
