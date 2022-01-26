@@ -55,7 +55,10 @@ minetest.register_abm({
 	chance = 3,
 	action = function(pos, node, active_object_count, active_object_count_wider)
 		if minetest.find_node_near(pos, 1, { "air" }) then
-			minetest.place_schematic(pos, modpath.."/plum_tree.mts", 0)
+			new_pos = pos	-- This bit of code pushes the schematic in the right place.
+			new_pos.x = pos.x - 2
+			new_pos.z = pos.z - 2
+			minetest.place_schematic(new_pos, modpath.."/plum_tree.mts", 0)
 		end
 	end
 })
