@@ -22,6 +22,10 @@ minetest.register_craftitem("bt_core:admin_pickaxe", {
 				times = {[1] = 0.30, [2] = 0.30, [3] = 0.30},
 				uses = 0,
 			},
+			choppy = {
+				times = {[1] = 0.30, [2] = 0.30, [3] = 0.30},
+				uses = 0,
+			},
 		},
 		damage_groups = {fleshy = 5},
 	}
@@ -47,13 +51,13 @@ minetest.register_craftitem("bt_core:baked_clay_bowl_with_potato_soup", {
     end,
 })
 
---misc
+--axes
 
 minetest.register_craftitem("bt_core:flint_axe", {
 	description = "Flint Axe",
 	inventory_image = "bt_core_flint_axe.png",
 	tool_capabilities = {
-		full_punch_interval = 0.9,
+		full_punch_interval = 0.8,
 		max_drop_level = 0,
 		groupcaps = {
 			crumbly = {
@@ -73,6 +77,43 @@ minetest.register_craftitem("bt_core:flint_axe", {
 				uses = 0,
 			},
 		},
-		damage_groups = {fleshy = 5},
+		damage_groups = {fleshy = 6},
 	}
 })
+
+--weapons
+
+minetest.register_craftitem("bt_core:flint_spear", {
+	description = "Flint Spear",
+                  range = 6,
+	inventory_image = "bt_core_flint_spear.png",
+	tool_capabilities = {
+		full_punch_interval = 0.8,
+		max_drop_level = 0,
+		damage_groups = {fleshy = 4},
+	}
+})
+
+minetest.register_craftitem("bt_core:flint_knife", {
+	description = "Flint Knife",
+                  range = 2,
+	inventory_image = "bt_core_flint_knife.png",
+	tool_capabilities = {
+		full_punch_interval = 0.8,
+		max_drop_level = 0,
+		damage_groups = {fleshy = 3},
+	},
+	on_use = function(itemstack,user)
+		user:set_fov(1.0, true, 0.25)
+		user:set_physics_override({
+			speed = 2.5
+		})
+		minetest.after(3, function()
+			user:set_fov(0, true, 0.5)
+			user:set_physics_override({
+				speed = 1
+			})
+		end, user)
+	end
+})
+

@@ -34,7 +34,7 @@ register_node('bt_core:plum_sapling', {
     sounds = bt_sounds.wood_sounds
 })
 
---Growth.
+--Plum growth.
 
 minetest.register_abm({
 	label = "Grow plum seed.",
@@ -51,12 +51,13 @@ minetest.register_abm({
 minetest.register_abm({
 	label = "Grow plum sapling.",
 	nodenames = {"bt_core:plum_sapling"},
-	interval = 1,
+	interval = 60,
 	chance = 3,
 	action = function(pos, node, active_object_count, active_object_count_wider)
 		if minetest.find_node_near(pos, 1, { "air" }) then
 			new_pos = pos	-- This bit of code pushes the schematic in the right place.
 			new_pos.x = pos.x - 2
+			new_pos.y = pos.y - 1
 			new_pos.z = pos.z - 2
 			minetest.place_schematic(new_pos, modpath.."/plum_tree.mts", 0)
 		end
@@ -65,4 +66,66 @@ minetest.register_abm({
 
 --Peach.
 
---Growth.
+--Peach growth.
+
+--Willow.
+
+register_node('bt_core:willow_seed', {
+    description = 'Willow Seed',
+    tiles = { 'bt_core_willow_seed.png' },
+    paramtype = "light",
+    drawtype = "nodebox",
+    groups = { oddly_breakable_by_hand = 3 },
+    is_ground_content = true,
+    node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.0625, -0.5, -0.0625, 0.0625, -0.4375, 0.0625},
+		}
+	},
+    sounds = bt_sounds.dirt_sounds
+})
+
+register_node('bt_core:willow_sapling', {
+    description = 'Willow Sapling',
+    waving = '1',
+    drawtype = 'plantlike',
+    walkable = false,
+    paramtype = "light",
+    inventory_image = 'bt_core_willow_sapling.png',
+    wield_image = 'bt_core_willow_sapling.png',
+    tiles = { 'bt_core_willow_sapling.png' },
+    groups = { snappy = 3 },
+    is_ground_content = true,
+    sounds = bt_sounds.wood_sounds
+})
+
+--Willow growth.
+
+minetest.register_abm({
+	label = "Grow willow seed.",
+	nodenames = {"bt_core:willow_seed"},
+	interval = 60,
+	chance = 3,
+	action = function(pos, node, active_object_count, active_object_count_wider)
+		if minetest.find_node_near(pos, 1, { "air" }) then
+			minetest.set_node(pos, {name = "bt_core:willow_sapling"})
+		end
+	end
+})
+
+minetest.register_abm({
+	label = "Grow plum sapling.",
+	nodenames = {"bt_core:willow_sapling"},
+	interval = 60,
+	chance = 3,
+	action = function(pos, node, active_object_count, active_object_count_wider)
+		if minetest.find_node_near(pos, 1, { "air" }) then
+			new_pos = pos	-- This bit of code pushes the schematic in the right place.
+			new_pos.x = pos.x - 2
+			new_pos.y = pos.y - 1
+			new_pos.z = pos.z - 2
+			minetest.place_schematic(new_pos, modpath.."/willow_tree.mts", 0)
+		end
+	end
+})

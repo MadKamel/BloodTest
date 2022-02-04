@@ -13,7 +13,7 @@ minetest.register_biome({
 })
 
 minetest.register_biome({
-	name = "mountain",
+	name = "summit",
 	node_top = "bt_core:ice",
 	depth_top = 1,
 	node_filler = "bt_core:ice",
@@ -83,6 +83,8 @@ minetest.register_biome({
 	humidity_point = 50,
 })
 
+--Forest stuff.
+
 minetest.register_decoration({
 	deco_type = "schematic",
 	place_on = "bt_core:dirt_with_grass",
@@ -114,71 +116,22 @@ minetest.register_decoration({
 })
 
 minetest.register_decoration({
-	deco_type = "schematic",
-	place_on = "bt_core:dirt_with_grass",
-	sidelen = 4,
-	fill_ratio = 0.0005,
-	biomes = {"forest"},
-	height = 2,
-	y_min = 5,
-	y_max = 31000,
-	place_offset_y = 0,
-	schematic = ("plum_tree.mts"),
-	flags = "place_center_x, place_center_z, force_placement",
-	rotation = "random",
-})
-
-minetest.register_decoration({
-	deco_type = "schematic",
-	place_on = "bt_core:dirt_with_grass",
-	sidelen = 4,
-	fill_ratio = 0.0005,
-	biomes = {"forest"},
-	height = 2,
-	y_min = 5,
-	y_max = 31000,
-	place_offset_y = 0,
-	schematic = ("peach_tree.mts"),
-	flags = "place_center_x, place_center_z, force_placement",
-	rotation = "random",
-})
-
-minetest.register_decoration({
 	decoration = "bt_core:wild_grass",
 	deco_type = "simple",
 	place_on = "bt_core:dirt_with_grass",
 	sidelen = 16,
-	fill_ratio = 0.8,
+	fill_ratio = 0.03,
 	biomes = {"forest"},
 		noise_params = {
-		offset = 0.01,
-		scale = 0.008,
+		offset = 0.00001,
+		scale = 0.8,
 		spread = {x = 250, y = 250, z = 250},
 		seed = 1,
 		octaves = 3,
 		persist = 0.64
 	},
 	y_min = 1,
-	y_max = 80,
-})
-
-minetest.register_decoration({
-	decoration = "bt_core:wild_grass",
-	deco_type = "simple",
-	place_on = "bt_core:dirt_with_grass",
-	sidelen = 16,
-	fill_ratio = 0.8,
-	biomes = {"grassland"},
-		noise_params = {
-		offset = 0.01,
-		scale = 0.008,
-		spread = {x = 250, y = 250, z = 250},
-		seed = 1,
-		octaves = 3,
-		persist = 0.64
-	},
-	y_min = 1,
-	y_max = 80,
+	y_max = 32000,
 })
 
 minetest.register_decoration({
@@ -186,21 +139,78 @@ minetest.register_decoration({
 	deco_type = "simple",
 	place_on = "bt_core:dirt_with_grass",
 	sidelen = 16,
-	fill_ratio = 0.8,
-	biomes = {"forest"},
+	fill_ratio = 0.003,
+	biomes = {"grassland"},
 		noise_params = {
-		offset = 0.01,
-		scale = 0.008,
+		offset = 0.0001,
+		scale = 0.0008,
 		spread = {x = 250, y = 250, z = 250},
 		seed = 2,
 		octaves = 3,
 		persist = 0.64
 	},
 	y_min = 1,
-	y_max = 80,
+	y_max = 32000,
 })
 
---ores
+--Grassland stuff.
+
+minetest.register_decoration({
+	decoration = "bt_core:wild_grass",
+	deco_type = "simple",
+	place_on = "bt_core:dirt_with_grass",
+	sidelen = 16,
+	fill_ratio = 0.03,
+	biomes = {"grassland"},
+		noise_params = {
+		offset = 0.001,
+		scale = 0.8,
+		spread = {x = 250, y = 250, z = 250},
+		seed = 1,
+		octaves = 3,
+		persist = 0.64
+	},
+	y_min = 1,
+	y_max = 32000,
+})
+
+minetest.register_decoration({
+	decoration = "bt_core:rock",
+	deco_type = "simple",
+	place_on = "bt_core:dirt_with_grass",
+	sidelen = 16,
+	fill_ratio = 0.8,
+	biomes = {"grassland, forest"},
+		noise_params = {
+		offset = 0.01,
+		scale = 0.0008,
+		spread = {x = 250, y = 250, z = 250},
+		seed = 3,
+		octaves = 3,
+		persist = 0.64
+	},
+	y_min = 1,
+	y_max = 32000,
+})
+
+--Swamp stuff.
+
+minetest.register_decoration({
+	deco_type = "schematic",
+	place_on = "bt_core:mud_with_grass",
+	sidelen = 4,
+	fill_ratio = 0.01,
+	biomes = {"swamp"},
+	height = 2,
+	y_min = 5,
+	y_max = 31000,
+	place_offset_y = 0,
+	schematic = ("willow_tree.mts"),
+	flags = "place_center_x, place_center_z, force_placement",
+	rotation = "random",
+})
+
+--Ores.
 
 minetest.register_ore({
 	ore_type = "scatter",
@@ -210,7 +220,7 @@ minetest.register_ore({
 	clust_num_ores = 3,
 	clust_size = 3,
 	y_min = -31000,
-	y_max = 31000,
+	y_max = 5,
 })
 
 minetest.register_ore({
@@ -222,6 +232,36 @@ minetest.register_ore({
 	clust_size = 3,
 	y_min = -31000,
 	y_max = 31000,
+})
+
+minetest.register_ore({
+	ore_type = "blob",
+	ore = "bt_core:mud",
+	wherein = "bt_core:mud_with_grass",
+	clust_scarcity = 4*4*4,
+	clust_num_ores = 4,
+	clust_size = 4,
+	y_min = -31000,
+	y_max = 31000,
+})
+
+minetest.register_decoration({
+	decoration = "bt_core:grass_with_mud",
+	deco_type = "simple",
+	place_on = "bt_core:mud",
+	sidelen = 16,
+	fill_ratio = 0.8,
+	biomes = {"swamp"},
+		noise_params = {
+		offset = 0.01,
+		scale = 0.0008,
+		spread = {x = 250, y = 250, z = 250},
+		seed = 3,
+		octaves = 3,
+		persist = 0.64
+	},
+	y_min = 1,
+	y_max = 32000,
 })
 
 minetest.register_ore({
@@ -242,7 +282,7 @@ minetest.register_ore({
 	clust_scarcity = 12*12*12,
 	clust_num_ores = 6,
 	clust_size = 3,
-	y_min = -31000,
+	y_min = -25,
 	y_max = 31000,
 })
 
@@ -255,4 +295,17 @@ minetest.register_ore({
 	clust_size = 3,
 	y_min = -31000,
 	y_max = 31000,
+})
+
+--misc
+
+minetest.register_ore({
+	ore_type = "blob",
+	ore = "bt_core:tar_source",
+	wherein = "bt_core:dirt_with_grass",
+	clust_scarcity = 15*15*15,
+	clust_num_ores = 3,
+	clust_size = 3,
+	y_min = 80,
+	y_max = 90,
 })

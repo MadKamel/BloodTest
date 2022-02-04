@@ -26,7 +26,9 @@ minetest.register_craftitem("bt_core:flint", {
 minetest.register_craftitem("bt_core:plum", {
     description = "Plum",
     inventory_image = "bt_core_plum.png",
-    on_use = minetest.item_eat(1)
+    on_use = function (itemstack, user, pointed_thing)
+        return minetest.do_item_eat(1, "bt_core:plum_seed", itemstack, user, pointed_thing)
+    end,
 })
 
 minetest.register_craftitem("bt_core:stick", {

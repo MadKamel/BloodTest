@@ -4,11 +4,22 @@ local register_node = minetest.register_node
 register_node('bt_core:wild_grass', {
     description = 'Wild Grass',
     waving = '1',
-    drop = 'bt_core:grass_1',
     drawtype = 'plantlike',
     walkable = false,
     paramtype = "light",
     tiles = { 'bt_core_grass.png' },
+    groups = { snappy = 3 },
+    is_ground_content = true,
+    sounds = bt_sounds.leaves_sounds
+})
+
+register_node('bt_core:grass_with_mud', {
+    description = 'Grass With Mud',
+    waving = '1',
+    drawtype = 'plantlike',
+    walkable = false,
+    paramtype = "light",
+    tiles = { 'bt_core_grass_with_mud.png' },
     groups = { snappy = 3 },
     is_ground_content = true,
     sounds = bt_sounds.leaves_sounds

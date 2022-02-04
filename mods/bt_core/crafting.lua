@@ -23,10 +23,25 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+	output = "bt_core:grass_1 3",
+	recipe = {
+		{"bt_core:wild_grass", "", ""},
+	}
+})
+
+minetest.register_craft({
 	output = "bt_core:stick 5",
 	recipe = {
 		{"", "bt_core:peach_planks", ""},
 		{"", "bt_core:peach_planks", ""},
+	}
+})
+
+minetest.register_craft({
+	output = "bt_core:stick 5",
+	recipe = {
+		{"", "bt_core:willow_planks", ""},
+		{"", "bt_core:willow_planks", ""},
 	}
 })
 
@@ -97,6 +112,13 @@ minetest.register_craft({
 	output = "bt_core:plum_planks 2",
 	recipe = {
 		{"bt_core:plum_log"},
+	}
+})
+
+minetest.register_craft({
+	output = "bt_core:willow_planks 2",
+	recipe = {
+		{"bt_core:willow_log"},
 	}
 })
 
