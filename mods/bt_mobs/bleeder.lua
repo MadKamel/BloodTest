@@ -44,4 +44,4 @@ local def = {
 	},
 }
 
-creatures.register_mob(def)
+--creatures.register_mob(def) --outdated line
