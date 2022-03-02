@@ -1,7 +1,10 @@
-Smelting
-Cooking
-Leaf Decay
-More Ores
-Enemies
-Remove Dungeons
-Some New Sounds
+Smelting (reuse from TerraNova)
+Cooking (This can be a nodetimer set via ABM)
+Leaf Decay (reuse from KSurvive)
+More Ores (Like Bauxite!)
+Weapons (For when we add in enemies)
+Enemies (Include sounds, too)
+Sounds (Come on- get out the brick, pickaxe and microphone already!)
+Desert (Add in some desert biomes and variations on it)
+Oases (These will generate in the hottest regions, and they will contain water, in relatively limited quantities)
+Fix Textures (Especially the really bad ones, like Willow Leaves)
