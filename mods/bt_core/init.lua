@@ -13,7 +13,7 @@ local modpath = minetest.get_modpath("bt_core")
 
 -- Run the other files in the bt_core mod
 
-dofile(modpath.."/generation.lua")
+dofile(modpath.."/mapgen.lua")
 dofile(modpath.."/wheat.lua")
 dofile(modpath.."/tar.lua")
 dofile(modpath.."/tree_growth.lua")
