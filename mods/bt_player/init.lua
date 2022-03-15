@@ -1,7 +1,4 @@
-local register_item = minetest.register_item
-
-
-register_item(':', {
+minetest.register_item(':', {
     type = 'none',
     wield_image = 'bt_player_hand.png',
     wield_scale = {x=1,y=1,z=2.5},
